@@ -145,4 +145,8 @@ EMAIL_PORT = 587
 AUTH_USER_MODEL = 'accounts.User'
 
 # ucmbpbzermzbwpkb
-DEFAULT_FROM_EMAIL = 'by Noob Messenger'
+DEFAULT_FROM_EMAIL = ' by the Noob Messenger'
+
+# ..............upload file .............
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

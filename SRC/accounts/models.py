@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ugettext as _
 from django.db import models
 import re
 from .managers import UserManager
@@ -53,3 +53,12 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+class OtpCode(models.Model):
+    phone_number = models.CharField(max_length=11, unique=True)
+    code = models.PositiveSmallIntegerField()
+    created = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.phone_number} - {self.code} - {self.created}'

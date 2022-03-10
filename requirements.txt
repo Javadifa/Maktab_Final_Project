@@ -12,3 +12,5 @@ suds==1.0.0
 UserManager==0.5.3
 username==2.1.0
 validate-email==1.3
+kavenegar==1.1.2
+
