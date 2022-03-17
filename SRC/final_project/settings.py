@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'final_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'messenger',
+        'NAME': 'email2',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
@@ -145,7 +145,7 @@ EMAIL_PORT = 587
 AUTH_USER_MODEL = 'accounts.User'
 
 # ucmbpbzermzbwpkb
-DEFAULT_FROM_EMAIL = ' by the Noob Messenger'
+DEFAULT_FROM_EMAIL = 'noob messenger'
 
 # ..............upload file .............
 MEDIA_URL = '/media/'

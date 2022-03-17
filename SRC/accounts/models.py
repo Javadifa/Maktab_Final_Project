@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext as _
+# from django.utils.translation import ugettext as _
 from django.db import models
 import re
 from .managers import UserManager
@@ -31,16 +31,16 @@ class User(AbstractUser):
         ('female', 'Female'),
         ('other', 'Other'),
     )
-    username = models.CharField(_('username'), validators=[valid_username], max_length=50, unique=True,
-                                help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
-                                error_messages={'unique': _("A accounts with that username already exists."),
+    username = models.CharField(validators=[valid_username], max_length=50, unique=True,
+                                help_text=('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+                                error_messages={'unique': ("A accounts with that username already exists."),
                                                 })
     first_name = models.CharField(max_length=30, blank=True, null=True)
     last_name = models.CharField(max_length=30, blank=True, null=True)
     recovery = models.CharField(max_length=15, choices=RECOVERY_CHOICES, default='')
     email = models.CharField(unique=True, max_length=50, blank=True, null=True)
     phone_number = models.CharField(max_length=13, unique=True, validators=[valid_phone_number], blank=True, null=True,
-                                    help_text=_('The number of characters entered must be at least 12 and at most 13 '
+                                    help_text=('The number of characters entered must be at least 12 and at most 13 '
                                                 'digits and must start with +.'))
     birth_date = models.DateTimeField(blank=True, null=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, blank=True, null=True)
@@ -57,7 +57,7 @@ class User(AbstractUser):
 
 class OtpCode(models.Model):
     phone_number = models.CharField(max_length=11, unique=True)
-    code = models.PositiveSmallIntegerField()
+    code = models.PositiveSmallIntegerField()  # code ro misaze
     created = models.DateTimeField(auto_now=True)
 
     def __str__(self):

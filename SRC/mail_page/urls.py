@@ -1,10 +1,16 @@
 from django.urls import path
 from . import views
 
+from django.views.decorators.csrf import csrf_exempt
+
 app_name = 'mail_page'
 urlpatterns = [
     # path('home/', views.home, name='home'),
     path('compose/', views.ComposeEmail.as_view(), name='compose'),
+    # signature
+    path('newsignature/', views.NewSignature.as_view(), name='newsignature'),
+    path('showsignature/', views.ShowSignature.as_view(), name='showsignature'),
+    path('deletesignature/<int:id>', views.DeleteSignature.as_view(), name='deletesignature'),
     # path('inbox/', views.Inbox.as_view(), name='inbox'),
     path('inbox/', views.Inbox.as_view(), name='home'),
     path('detail/<int:id>', views.DetailEmail.as_view(), name='detail'),
@@ -32,4 +38,7 @@ urlpatterns = [
     path('addlabel/<int:id>', views.AddLabel.as_view(), name='addlabel'),
     path('labeldetail/<int:id>', views.LabelDetail.as_view(), name='labeldetail'),
     path('deletelabel/<int:id>', views.DeleteLabel.as_view(), name='deletelabel'),
+    # path('searchemail/', csrf_exempt(views.search_email), name='searchemail'),
+    path('filteremail/', views.FilterEmail.as_view(), name='filteremail'),
+    path('alpine/', views.FilterAlpineJs.as_view(), name='alpine'),
 ]
