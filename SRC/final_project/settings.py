@@ -151,7 +151,7 @@ EMAIL_PORT = 587
 AUTH_USER_MODEL = 'accounts.User'
 
 # ucmbpbzermzbwpkb
-DEFAULT_FROM_EMAIL = 'by NOOB MESSENGER'
+DEFAULT_FROM_EMAIL = 'NOOB MESSENGER'
 
 # ..............upload file .............
 MEDIA_URL = '/media/'
@@ -170,5 +170,6 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated', ]
 }
